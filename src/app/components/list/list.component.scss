@@ -10,15 +10,164 @@
 
   .list-body {
     grid-area: body;
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     .list-item {
+      min-width: 20rem;
+    }
+    .list-card {
       display: flex;
+      flex-direction: column;
       justify-content: center;
+      width: 100%;
       align-items: center;
+      border-radius: 0.5rem;
+      margin: 0.5rem;
+      .block-img {
+        width: 100%;
+        text-align-last: center;
+      }
+      .block-img {
+        background-repeat: no-repeat;
+        background-size: 8rem;
+        background-blend-mode: color-burn;
+      }
     }
   }
 
   .list-pagination {
     grid-area: pagination;
+  }
+
+  .list-card {
+    &.fire {
+      background: #ff6b1a;
+      .block-img {
+        background: #f06216;
+      }
+      label {
+        color: #fff;
+      }
+    }
+
+    &.grass {
+      background: #a8c15e;
+      .block-img {
+        background: #a1b85b;
+      }
+      label {
+        color: #fff;
+      }
+    }
+
+    &.water {
+      background: #00b3ad;
+      .block-img {
+        background: #00a6a0;
+      }
+      label {
+        color: #fff;
+      }
+    }
+
+    &.bug {
+      background: #006663;
+      .block-img {
+        background: #01706c;
+      }
+      label {
+        color: #fff;
+      }
+    }
+
+    &.normal {
+      background: #acacac;
+      .block-img {
+        background: #c4c4c4;
+      }
+      label {
+        color: #fff;
+      }
+    }
+
+    &.poison {
+      background: #ba6fd1;
+      .block-img {
+        background: #b168c7;
+      }
+      label {
+        color: #fff;
+      }
+    }
+
+    &.electric {
+      background: #ffec5c;
+      .block-img {
+        background: #e7d552;
+      }
+    }
+
+    &.ground {
+      background: #662400;
+      .block-img {
+        background: #852f00;
+      }
+      label {
+        color: #fff;
+      }
+    }
+
+    &.fairy {
+      background: #e27bd4;
+      .block-img {
+        background: #fb8aec;
+      }
+      label {
+        color: #fff;
+      }
+    }
+
+    &.psychic {
+      background: #dd5966;
+      .block-img {
+        background: #ff6676;
+      }
+      label {
+        color: #fff;
+      }
+    }
+
+    &.fighting {
+      background: #c54500;
+      .block-img {
+        background: #b13e00;
+      }
+      label {
+        color: #fff;
+      }
+    }
+
+    &.rock {
+      background: #ad9e75;
+      .block-img {
+        background: #c9b787;
+      }
+      label {
+        color: #fff;
+      }
+    }
+
+    &.ghost {
+      background: #4460a3;
+      .block-img {
+        background: #4b6ab4
+          url("../../../public/icon/Pokémon_Ghost_Type_Icon.svg");
+        
+      }
+      label {
+        color: #fff;
+      }
+    }
   }
 }

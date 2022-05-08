@@ -1,9 +1,13 @@
 <div class="list-pokemon">
     <div class="list-search"></div>
-    <div class="list-body" *ngFor="let pokemon of pokemons" or>
-        <div class="list-item">
-            <img src="{{pokemon.sprites.front_default}}">
-            <p>{{pokemon.name}}</p>
+    <div class="list-body">
+        <div class="list-item" *ngFor="let pokemon of pokemons">
+            <div class="list-card {{getFirstType(pokemon)}}">
+                <label>{{pokemon.name}}</label>
+                <div class="block-img">
+                    <img src="{{pokemon?.sprites?.front_default}}">
+                </div>
+            </div>
         </div>
     </div>
     <div class="list-pagination"></div>

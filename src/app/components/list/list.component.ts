@@ -30,16 +30,21 @@ export class ListComponent implements OnInit {
   getPokemons(): void {
     this.subscription = this.pokemonService.getNext().subscribe(response => {
       response?.results.map((pokemon: any, index: number) => {
+        this.pokemonService.pokemons.push(pokemon);
         this.getDetail(pokemon.url, index);
       })
     }, error => console.log('Error Occurred:', error));
   }
 
-
   getDetail(url: string, index: number): void {
     this.subscription = this.pokemonService.getPokemonDetail(url).subscribe((response) => {
-      this.pokemonService.pokemons.splice(index, 0, response);
+      this.pokemonService.pokemons.splice(index, 1, response);
     }, error => console.log('Error Occurred:', error));
   }
 
+  getFirstType(pokemon: any) {
+    if (!pokemon?.types) return
+    return pokemon?.types[0]?.type.name
+  }
 }
+
