@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { PokemonService } from 'src/app/services/service';
 
 @Component({
@@ -23,12 +24,22 @@ export class ListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (!this.pokemons?.length) this.testApi();
+    if (!this.pokemons?.length) this.getPokemons();
   }
 
-  testApi(): void {
-    this.subscription = this.pokemonService.getNext("10").subscribe(response => {
-      console.log("🚀 ~ file: list.component.ts ~ line 32 ~ ListComponent ~ this.subscription=this.pokemonService.getNext ~ response", response)
+  getPokemons(): void {
+    this.subscription = this.pokemonService.getNext().subscribe(response => {
+      response?.results.map((pokemon: any, index: number) => {
+        this.getDetail(pokemon.url, index);
+      })
     }, error => console.log('Error Occurred:', error));
   }
+
+
+  getDetail(url: string, index: number): void {
+    this.subscription = this.pokemonService.getPokemonDetail(url).subscribe((response) => {
+      this.pokemonService.pokemons.splice(index, 0, response);
+    }, error => console.log('Error Occurred:', error));
+  }
+
 }

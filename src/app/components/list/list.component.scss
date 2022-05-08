@@ -1,0 +1,24 @@
+.list-pokemon {
+  grid-template-areas:
+    "search"
+    "body"
+    "pagination";
+
+  .list-search {
+    grid-area: search;
+  }
+
+  .list-body {
+    grid-area: body;
+
+    .list-item {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .list-pagination {
+    grid-area: pagination;
+  }
+}

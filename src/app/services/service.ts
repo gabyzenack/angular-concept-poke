@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
-const apiUrl : string = environment.apiUrl;
+const apiUrl: string = environment.apiUrl;
 
 @Injectable({
     providedIn: 'root'
@@ -20,17 +20,16 @@ export class PokemonService {
         return this._pokemons;
     }
 
-    set pokemons(_pokemons: any[]) {
-        this._pokemons = _pokemons;
+    set pokemons(pokemons: any[]) {
+        this._pokemons = pokemons;
     }
 
-    getNext(next: string): Observable<any> {
-        const url = `${apiUrl}?offset=${next}&limit=10`;
+    getNext(nextUrl?: string): Observable<any> {
+        const url = nextUrl || `${apiUrl}?offset=$0&limit=10`;
         return this.http.get(url);
     }
 
-    getPokemon(name: string): Observable<any> {
-        const url = `${apiUrl}${name}`;
+    getPokemonDetail(url: string): Observable<any> {
         return this.http.get(url);
     }
 
