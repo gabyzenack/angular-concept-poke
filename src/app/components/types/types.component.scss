@@ -1,0 +1,13 @@
+.pokemon-type {
+  display: flex;
+  &:first-child {
+    margin-right: 1rem;
+  }
+  padding: 0.3rem;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: .6rem;
+  span {
+    text-transform: capitalize;
+    color: #fff;
+  }
+}

@@ -23,7 +23,8 @@
       width: 100%;
       align-items: center;
       border-radius: 0.5rem;
-      margin: 0.5rem;
+      margin: 0.5rem 0;
+      transition: all 0.3s ease-out;
       .block-img {
         width: 100%;
         text-align-last: center;
@@ -32,6 +33,13 @@
         background-repeat: no-repeat;
         background-size: 8rem;
         background-blend-mode: color-burn;
+      }
+      label{
+        text-transform: capitalize;
+      }
+      &:hover{
+        transform: scale(1.1);
+        transition: all 0.3s ease-out;
       }
     }
   }
@@ -44,7 +52,8 @@
     &.fire {
       background: #ff6b1a;
       .block-img {
-        background: #f06216;
+        background: #f06216
+        url("../../../public/icon/Pokémon_Fire_Type_Icon.svg");
       }
       label {
         color: #fff;
@@ -54,7 +63,8 @@
     &.grass {
       background: #a8c15e;
       .block-img {
-        background: #a1b85b;
+        background: #a1b85b
+        url("../../../public/icon/Pokémon_Grass_Type_Icon.svg");
       }
       label {
         color: #fff;
@@ -64,7 +74,8 @@
     &.water {
       background: #00b3ad;
       .block-img {
-        background: #00a6a0;
+        background: #00a6a0
+        url("../../../public/icon/Pokémon_Water_Type_Icon.svg");
       }
       label {
         color: #fff;
@@ -74,7 +85,8 @@
     &.bug {
       background: #006663;
       .block-img {
-        background: #01706c;
+        background: #01706c
+        url("../../../public/icon/Pokémon_Bug_Type_Icon.svg");
       }
       label {
         color: #fff;
@@ -84,7 +96,8 @@
     &.normal {
       background: #acacac;
       .block-img {
-        background: #c4c4c4;
+        background: #c4c4c4
+        url("../../../public/icon/Pokémon_Normal_Type_Icon.svg");
       }
       label {
         color: #fff;
@@ -94,7 +107,8 @@
     &.poison {
       background: #ba6fd1;
       .block-img {
-        background: #b168c7;
+        background: #b168c7
+        url("../../../public/icon/Pokémon_Poison_Type_Icon.svg");
       }
       label {
         color: #fff;
@@ -104,14 +118,16 @@
     &.electric {
       background: #ffec5c;
       .block-img {
-        background: #e7d552;
+        background: #e7d552
+        url("../../../public/icon/Pokémon_Electric_Type_Icon.svg");
       }
     }
 
     &.ground {
       background: #662400;
       .block-img {
-        background: #852f00;
+        background: #852f00
+        url("../../../public/icon/Pokémon_Ground_Type_Icon.svg");
       }
       label {
         color: #fff;
@@ -121,7 +137,8 @@
     &.fairy {
       background: #e27bd4;
       .block-img {
-        background: #fb8aec;
+        background: #fb8aec
+        url("../../../public/icon/Pokémon_Fairy_Type_Icon.svg");
       }
       label {
         color: #fff;
@@ -131,7 +148,8 @@
     &.psychic {
       background: #dd5966;
       .block-img {
-        background: #ff6676;
+        background: #ff6676
+        url("../../../public/icon/Pokémon_Poison_Type_Icon.svg");
       }
       label {
         color: #fff;
@@ -141,7 +159,8 @@
     &.fighting {
       background: #c54500;
       .block-img {
-        background: #b13e00;
+        background: #b13e00
+        url("../../../public/icon/Pokémon_Fighting_Type_Icon.svg");
       }
       label {
         color: #fff;
@@ -151,7 +170,8 @@
     &.rock {
       background: #ad9e75;
       .block-img {
-        background: #c9b787;
+        background: #c9b787
+        url("../../../public/icon/Pokémon_Ghost_Type_Icon.svg");
       }
       label {
         color: #fff;

@@ -1,0 +1,38 @@
+.pokemon-detail {
+  background: red;
+  width: 40rem;
+  position: fixed;
+  top: 5rem;
+  left: 5rem;
+  grid-template-areas:
+    "heaad"
+    "body";
+  padding: 1rem;
+  .detail-head {
+    .detail-head-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+  .detail-body {
+    grid-area: body;
+    display: flex;
+    align-items: center;
+  }
+  img {
+    width: 50%;
+  }
+  h1 {
+    text-transform: capitalize;
+    color: #fff;
+  }
+  p {
+    color: #fff;
+    font-weight: 600;
+    font-size: 22px;
+  }
+  app-types{
+    display: flex;
+  }
+}

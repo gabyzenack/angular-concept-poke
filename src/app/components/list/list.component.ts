@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { PokemonService } from 'src/app/services/service';
 
 @Component({
@@ -10,6 +9,9 @@ import { PokemonService } from 'src/app/services/service';
 })
 
 export class ListComponent implements OnInit {
+  filter: string = "";
+  pokemonsFiltered: any = null;
+  pokemonSelected: any = null;
 
   constructor(private pokemonService: PokemonService) { }
 
@@ -45,6 +47,15 @@ export class ListComponent implements OnInit {
   getFirstType(pokemon: any) {
     if (!pokemon?.types) return
     return pokemon?.types[0]?.type.name
+  }
+
+  onFilter(value: any) {
+    this.filter = value;
+    this.pokemonsFiltered = this.pokemons.filter(pokemon => pokemon?.name?.toLowerCase().includes(value.toLowerCase()))
+  }
+
+  onSelect(value: any) {
+    this.pokemonSelected = value;
   }
 }
 

@@ -1,0 +1,8 @@
+<div *ngFor="let stat of stats; let i = index" class="stat-pokemon">
+    <div class="stat-info">
+        <p>{{stat?.stat?.name}}</p>
+        <span>{{stat?.base_stat}}</span>
+    </div>
+    <div class="stat-bars" [ngStyle]="getNumberStatInPorcent(stat)">
+    </div>
+</div>

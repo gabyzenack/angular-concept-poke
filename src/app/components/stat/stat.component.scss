@@ -1,0 +1,17 @@
+.stat-pokemon {
+  display: flex;
+  align-items: center;
+  .stat-info {
+    display: flex;
+    justify-content: space-between;
+    p {
+      padding-right: 1rem;
+    }
+    width: 10rem;
+  }
+  .stat-bars {
+    margin-left: 1rem;
+    height: 0.5rem;
+    background-color: rgb(253, 236, 0);
+  }
+}

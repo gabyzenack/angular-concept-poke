@@ -1,1 +1,13 @@
-<p>detail works!</p>
+<div class="pokemon-detail" *ngIf="pokemon">
+    <div class="detail-head">
+        <div class="detail-head-title">
+            <h1>{{pokemon.name}}</h1>
+            <p>#0{{pokemon.id}}</p>
+        </div>
+        <app-types [types]="pokemon?.types"></app-types>
+    </div>
+    <div class="detail-body">
+        <img src="{{pokemon?.sprites?.other?.home?.front_default}}">
+        <app-stat [stats]="pokemon?.stats"></app-stat>
+    </div>
+</div>

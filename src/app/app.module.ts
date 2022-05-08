@@ -8,6 +8,8 @@ import { AppHomeComponent } from './home/app-home.component';
 import { ListComponent } from './components/list/list.component';
 import { DetailComponent } from './components/detail/detail.component';
 import { HttpClientModule } from '@angular/common/http';
+import { StatComponent } from './components/stat/stat.component';
+import { TypesComponent } from './components/types/types.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppHomeComponent,
     ListComponent,
     DetailComponent,
+    StatComponent,
+    TypesComponent,
   ],
   imports: [
     BrowserModule,
