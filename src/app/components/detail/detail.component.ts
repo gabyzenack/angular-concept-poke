@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-detail',
@@ -7,8 +7,25 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class DetailComponent implements OnInit {
   @Input() pokemon: any;
+  @Output() pokemonEvent = new EventEmitter<any>();
+
   constructor() { }
-  
+
   ngOnInit(): void {
+  }
+
+  getFirstType() {
+    if (!this.pokemon?.types) return
+    return this.pokemon?.types[0]?.type?.name
+  }
+
+  getHeightAndWeight(value: number) {
+    if (!value) return
+    let valueParse = value / 10 || 0;
+    return valueParse
+  }
+
+  onClose() {
+    this.pokemonEvent.emit(null)
   }
 }

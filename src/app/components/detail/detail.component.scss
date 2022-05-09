@@ -1,13 +1,18 @@
 .pokemon-detail {
-  background: red;
-  width: 40rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-blend-mode: color-burn;
+  background-size: cover;
+  max-width: 40rem;
   position: fixed;
-  top: 5rem;
+  top: 2.75rem;
   left: 5rem;
   grid-template-areas:
     "heaad"
-    "body";
+    "body"
+    "close";
   padding: 1rem;
+  transition: all 0.3s ease-out;
   .detail-head {
     .detail-head-title {
       display: flex;
@@ -19,20 +24,102 @@
     grid-area: body;
     display: flex;
     align-items: center;
+    .detail-general {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      .detail-physical {
+        display: flex;
+        background: rgba(255, 255, 255, 0.5);
+        width: 90%;
+        padding: 1rem;
+        margin-bottom: 2rem;
+        p {
+          padding-right: 2rem;
+        }
+      }
+    }
   }
   img {
-    width: 50%;
+    width: 45%;
+    position: relative;
+    top: -3rem;
   }
   h1 {
     text-transform: capitalize;
     color: #fff;
   }
-  p {
+  h2 {
     color: #fff;
-    font-weight: 600;
-    font-size: 22px;
   }
-  app-types{
+  app-types {
     display: flex;
+  }
+  app-stat {
+    background: rgba(255, 255, 255, 0.5);
+    width: 90%;
+    padding: 1rem;
+  }
+  .button-close {
+    grid-area: close;
+    display: flex;
+    justify-content: end;
+    margin-right: .3rem;
+    button{
+      border: unset;
+      padding: 1rem;
+    }
+  }
+
+  &.fire {
+    background-image: url(../../../public/image/fire.jpg);
+  }
+
+  &.grass {
+    background-image: url(../../../public/image/plant.jpg);
+  }
+
+  &.water {
+    background-image: url(../../../public/image/water.jpg);
+  }
+
+  &.bug {
+    background-image: url(../../../public/image/bug.jpg);
+  }
+
+  &.normal {
+    background-image: url(../../../public/image/normal.jpg);
+  }
+
+  &.poison {
+    background-image: url(../../../public/image/poison.jpg);
+  }
+
+  &.electric {
+    background-image: url(../../../public/image/electric.jpg);
+  }
+
+  &.ground {
+    background-image: url(../../../public/image/ground.jpg);
+  }
+
+  &.fairy {
+    background-image: url(../../../public/image/feary.jpg);
+  }
+
+  &.psychic {
+    background-image: url(../../../public/image/psychic.jpg);
+  }
+
+  &.fighting {
+    background-image: url(../../../public/image/fighting.jpg);
+  }
+
+  &.rock {
+    background-image: url(../../../public/image/rock.jpg);
+  }
+
+  &.ghost {
+    background-image: url(../../../public/image/ghots.jpg);
   }
 }

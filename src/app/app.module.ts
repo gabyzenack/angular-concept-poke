@@ -10,6 +10,7 @@ import { DetailComponent } from './components/detail/detail.component';
 import { HttpClientModule } from '@angular/common/http';
 import { StatComponent } from './components/stat/stat.component';
 import { TypesComponent } from './components/types/types.component';
+import { PaginationComponent } from './components/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { TypesComponent } from './components/types/types.component';
     DetailComponent,
     StatComponent,
     TypesComponent,
+    PaginationComponent,
   ],
   imports: [
     BrowserModule,

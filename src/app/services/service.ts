@@ -25,7 +25,7 @@ export class PokemonService {
     }
 
     getNext(nextUrl?: string): Observable<any> {
-        const url = nextUrl || `${apiUrl}?offset=$0&limit=100`;
+        const url = nextUrl || `${apiUrl}?offset=$0&limit=10`;
         return this.http.get(url);
     }
 

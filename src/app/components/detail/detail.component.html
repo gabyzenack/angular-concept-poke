@@ -1,13 +1,26 @@
-<div class="pokemon-detail" *ngIf="pokemon">
-    <div class="detail-head">
+<div class="pokemon-detail {{getFirstType()}}" *ngIf="pokemon">
+    <div class="detail-head {{pokemon}}">
         <div class="detail-head-title">
             <h1>{{pokemon.name}}</h1>
-            <p>#0{{pokemon.id}}</p>
+            <h2>#0{{pokemon.id}}</h2>
         </div>
         <app-types [types]="pokemon?.types"></app-types>
     </div>
     <div class="detail-body">
         <img src="{{pokemon?.sprites?.other?.home?.front_default}}">
-        <app-stat [stats]="pokemon?.stats"></app-stat>
+        <div class="detail-general">
+            <div class="detail-physical">
+                <div class="physical-weight">
+                    <p>Weight: {{getHeightAndWeight(pokemon?.weight)}} kg</p>
+                </div>
+                <div class="physical-height">
+                    <p>Height: {{getHeightAndWeight(pokemon?.height)}} m</p>
+                </div>
+            </div>
+            <app-stat [stats]="pokemon?.stats"></app-stat>
+        </div>
+    </div>
+    <div class="button-close">
+        <button (click)="onClose()">Aceptar</button>
     </div>
 </div>

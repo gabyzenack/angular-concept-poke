@@ -3,7 +3,8 @@
         <input type="text" [(ngModel)]="filter" (ngModelChange)="onFilter($event)">
     </div>
     <div class="list-body">
-        <div class="list-item" *ngFor="let pokemon of pokemonsFiltered || pokemons; let i = index" [attr.data-index]="i">
+        <div class="list-item" *ngFor="let pokemon of pokemonsFiltered || pokemons; let i = index"
+            [attr.data-index]="i">
             <div class="list-card {{getFirstType(pokemon)}}" (click)="onSelect(pokemon)">
                 <label>N°0{{i+1}} {{pokemon.name}}</label>
                 <div class="block-img">
@@ -12,6 +13,6 @@
             </div>
         </div>
     </div>
-    <div class="list-pagination"></div>
-    <app-detail [pokemon]="pokemonSelected"></app-detail>
+    <app-pagination class="list-pagination"></app-pagination>
+    <app-detail [pokemon]="pokemonSelected" (pokemonEvent)="onSelect($event)"></app-detail>
 </div>
