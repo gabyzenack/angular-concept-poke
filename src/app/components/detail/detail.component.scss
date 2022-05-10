@@ -3,7 +3,7 @@
   background-repeat: no-repeat;
   background-blend-mode: color-burn;
   background-size: cover;
-  background-image: url(../../../public/image/normal.jpg);
+  background-image: url('/assets/image/normal.jpg');
   max-width: 40rem;
   position: fixed;
   top: 2.75rem;
@@ -88,50 +88,50 @@
   }
 
   &.fire {
-    background-image: url(../../../public/image/fire.jpg);
+    background-image: url('/assets/image/fire.jpg');
   }
 
   &.grass {
-    background-image: url(../../../public/image/plant.jpg);
+    background-image: url('/assets/image/plant.jpg');
   }
 
   &:where(.water, .ice) {
-    background-image: url(../../../public/image/water.jpg);
+    background-image: url('/assets/image/water.jpg');
   }
 
   &.bug {
-    background-image: url(../../../public/image/bug.jpg);
+    background-image: url('/assets/image/bug.jpg');
   }
 
   &.poison {
-    background-image: url(../../../public/image/poison.jpg);
+    background-image: url('/assets/image/poison.jpg');
   }
 
   &.electric {
-    background-image: url(../../../public/image/electric.jpg);
+    background-image: url('/assets/image/electric.jpg');
   }
 
   &.ground {
-    background-image: url(../../../public/image/ground.jpg);
+    background-image: url('/assets/image/ground.jpg');
   }
 
   &.fairy {
-    background-image: url(../../../public/image/feary.jpg);
+    background-image: url('/assets/image/feary.jpg');
   }
 
   &.psychic {
-    background-image: url(../../../public/image/psychic.jpg);
+    background-image: url('/assets/image/psychic.jpg');
   }
 
   &.fighting {
-    background-image: url(../../../public/image/fighting.jpg);
+    background-image: url('/assets/image/fighting.jpg');
   }
 
   &.rock {
-    background-image: url(../../../public/image/rock.jpg);
+    background-image: url('/assets/image/rock.jpg');
   }
 
   &.ghost {
-    background-image: url(../../../public/image/ghots.jpg);
+    background-image: url('/assets/image/ghots.jpg');
   }
 }
