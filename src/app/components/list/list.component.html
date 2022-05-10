@@ -1,18 +1,24 @@
 <div class="list-pokemon">
     <div class="list-search">
         <input type="text" [(ngModel)]="filter" (ngModelChange)="onFilter($event)">
+        <svg xmlns="http://www.w3.org/2000/svg" class="input-icon" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd"
+                d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                clip-rule="evenodd" />
+        </svg>
     </div>
     <div class="list-body">
         <div class="list-item" *ngFor="let pokemon of pokemonsFiltered || pokemons; let i = index"
             [attr.data-index]="i">
             <div class="list-card {{getFirstType(pokemon)}}" (click)="onSelect(pokemon)">
-                <label>N°0{{i+1}} {{pokemon.name}}</label>
+                <label>N°0{{pokemon?.id}} {{pokemon.name}}</label>
                 <div class="block-img">
                     <img src="{{pokemon?.sprites?.front_default}}">
                 </div>
             </div>
         </div>
     </div>
-    <app-pagination class="list-pagination"></app-pagination>
+    <app-pagination class="list-pagination" (prevPageEvent)="onNextPage()" (nextPageEvent)="onPrevPage()">
+    </app-pagination>
     <app-detail [pokemon]="pokemonSelected" (pokemonEvent)="onSelect($event)"></app-detail>
 </div>

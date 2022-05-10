@@ -24,8 +24,8 @@ export class PokemonService {
         this._pokemons = pokemons;
     }
 
-    getNext(nextUrl?: string): Observable<any> {
-        const url = nextUrl || `${apiUrl}?offset=$0&limit=10`;
+    getNext(limit: number, nextUrl?: string): Observable<any> {
+        const url = nextUrl || `${apiUrl}?offset=$0&limit=${limit}`;
         return this.http.get(url);
     }
 

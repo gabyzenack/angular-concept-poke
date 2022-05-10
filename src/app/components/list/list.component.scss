@@ -7,11 +7,41 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  height: 87.5rem;
+  height: 90.1rem;
+  @media screen and (max-width: 87.5rem) {
+    height: 90.8rem;
+  }
+  @media screen and (max-width: 48rem) {
+    background-size: cover;
+    padding-top: 5rem;
+  }
   .list-search {
     grid-area: search;
     text-align: center;
-    padding-top: .5rem;
+    padding-top: 0.5rem;
+    input {
+      border: 0.2rem solid #261f1d;
+      border-radius: 1rem;
+      @media screen and (max-width: 45rem) {
+        height: 2rem;
+        width: 20rem;
+      }
+    }
+    .input-icon {
+      width: 1rem;
+      position: relative;
+      left: -1.5rem;
+      top: 0.2rem;
+      @media screen and (max-width: 45rem) {
+        display: none;
+      }
+    }
+    @media screen and (max-width: 45rem) {
+      position: fixed;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 0;
+    }
   }
 
   .list-body {
@@ -79,7 +109,7 @@
       }
     }
 
-    &.water {
+    &:where(.water, .ice) {
       background: #00b3ad;
       .block-img {
         background: #00a6a0

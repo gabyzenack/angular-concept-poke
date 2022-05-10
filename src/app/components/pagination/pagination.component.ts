@@ -1,6 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { PokemonService } from 'src/app/services/service';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-pagination',
@@ -9,24 +7,20 @@ import { PokemonService } from 'src/app/services/service';
 })
 
 export class PaginationComponent implements OnInit {
+  @Output() prevPageEvent = new EventEmitter<any>();
+  @Output() nextPageEvent = new EventEmitter<any>();
 
-  constructor(private pokemonService: PokemonService) { }
-
-  subscriptions: Subscription[] = [];
-
-  set subscription(subscription: Subscription) {
-    this.subscriptions.push(subscription);
-  }
+  constructor() { }
 
   ngOnInit(): void {
   }
 
   prevPage(){
-
+    this.prevPageEvent.emit()
   }
 
   nextPage(){
-    
+    this.nextPageEvent.emit()
   }
 
 }

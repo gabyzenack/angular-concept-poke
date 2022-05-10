@@ -13,6 +13,10 @@ export class ListComponent implements OnInit {
   pokemonsFiltered: any = null;
   pokemonSelected: any = null;
 
+  nextUrlPage: string = ""
+  prevUrlPage: string = ""
+  limitPage: number = 10;
+
   constructor(private pokemonService: PokemonService) { }
 
   subscriptions: Subscription[] = [];
@@ -29,11 +33,13 @@ export class ListComponent implements OnInit {
     if (!this.pokemons?.length) this.getPokemons();
   }
 
-  getPokemons(): void {
-    this.subscription = this.pokemonService.getNext().subscribe(response => {
-      response?.results.map((pokemon: any, index: number) => {
-        this.pokemonService.pokemons.push(pokemon);
-        this.getDetail(pokemon.url, index);
+  getPokemons(limitPage: number = this.limitPage, urlPage?: string): void {
+    this.subscription = this.pokemonService.getNext(limitPage, urlPage).subscribe(response => {
+      this.prevUrlPage = response.next;
+      this.nextUrlPage = response.previous;
+      response?.results.map(async(pokemon: any, index: number) => {
+        this.pokemonService.pokemons.splice(index, 1, pokemon);
+        await this.getDetail(pokemon.url, index);
       })
     }, error => console.log('Error Occurred:', error));
   }
@@ -45,17 +51,32 @@ export class ListComponent implements OnInit {
   }
 
   getFirstType(pokemon: any) {
-    if (!pokemon?.types) return
-    return pokemon?.types[0]?.type.name
+    if (!pokemon?.types) return;
+    return pokemon?.types[0]?.type.name;
   }
 
-  onFilter(value: any) {
+  async onFilter(value: any) {
     this.filter = value;
-    this.pokemonsFiltered = this.pokemons.filter(pokemon => pokemon?.name?.toLowerCase().includes(value.toLowerCase()))
+    if (value === "") {
+      this.pokemonsFiltered = null;
+      this.pokemonService.pokemons = [];
+      return this.getPokemons();
+    }
+    if (this.pokemonService?.pokemons?.length === 10) {
+      await this.getPokemons(151, this.nextUrlPage,);
+    }
+    this.pokemonsFiltered = this.pokemons?.filter(pokemon => pokemon?.name?.toLowerCase().includes(value?.toLowerCase()));
   }
 
+  //Output Events
   onSelect(value: any) {
     this.pokemonSelected = value;
+  }
+  onNextPage() {
+    this.getPokemons(this.limitPage, this.nextUrlPage)
+  }
+  onPrevPage() {
+    this.getPokemons(this.limitPage, this.prevUrlPage)
   }
 }
 

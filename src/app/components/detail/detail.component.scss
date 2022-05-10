@@ -3,10 +3,15 @@
   background-repeat: no-repeat;
   background-blend-mode: color-burn;
   background-size: cover;
+  background-image: url(../../../public/image/normal.jpg);
   max-width: 40rem;
   position: fixed;
   top: 2.75rem;
   left: 5rem;
+  @media screen and (max-width: 112.5rem) {
+    left: 50%;
+    transform: translateX(-50%);
+  }
   grid-template-areas:
     "heaad"
     "body"
@@ -24,6 +29,10 @@
     grid-area: body;
     display: flex;
     align-items: center;
+    @media screen and (max-width: 45rem) {
+      justify-content: center;
+      flex-wrap: wrap;
+    }
     .detail-general {
       display: flex;
       flex-direction: column;
@@ -41,9 +50,12 @@
     }
   }
   img {
-    width: 45%;
-    position: relative;
-    top: -3rem;
+    width: 50%;
+    @media screen and (min-width: 45rem) {
+      width: 45%;
+      position: relative;
+      top: -3rem;
+    }
   }
   h1 {
     text-transform: capitalize;
@@ -64,8 +76,12 @@
     grid-area: close;
     display: flex;
     justify-content: end;
-    margin-right: .3rem;
-    button{
+    margin-right: 0.3rem;
+    @media screen and (max-width: 45rem) {
+      margin-top: 1rem;
+      margin-right: unset;
+    }
+    button {
       border: unset;
       padding: 1rem;
     }
@@ -79,16 +95,12 @@
     background-image: url(../../../public/image/plant.jpg);
   }
 
-  &.water {
+  &:where(.water, .ice) {
     background-image: url(../../../public/image/water.jpg);
   }
 
   &.bug {
     background-image: url(../../../public/image/bug.jpg);
-  }
-
-  &.normal {
-    background-image: url(../../../public/image/normal.jpg);
   }
 
   &.poison {
